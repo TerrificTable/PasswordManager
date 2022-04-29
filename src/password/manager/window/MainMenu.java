@@ -53,7 +53,7 @@ public class MainMenu extends JFrame {
         setMinimumSize(new Dimension(650, 350));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("PasswordManager");
-        var contentPane = getContentPane();
+        Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //======== tabbedPane1 ========
