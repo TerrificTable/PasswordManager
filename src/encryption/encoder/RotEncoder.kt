@@ -1,4 +1,4 @@
-package encryption.encoder;
+package encryption.encoder
 
 class RotEncoder {
     companion object {

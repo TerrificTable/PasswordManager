@@ -1,32 +1,33 @@
 package encryption.encoder;
 
 import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class Base85Encoder {
     private final static int ASCII_SHIFT = 33;
-    private static int[] BASE85_PW = {
+    private static final int[] BASE85_PW = {
             1,
             85,
             85 * 85,
             85 * 85 * 85,
             85 * 85 * 85 * 85
     };
-    private static Pattern REMOVE_WHITESPACE = Pattern.compile("\\s+");
+    private static final Pattern REMOVE_WHITESPACE = Pattern.compile("\\s+");
 
 
     public static String Base85Encode(String stringIn) {
         byte[] in = stringIn.getBytes();
 
-        if (in == null) { throw new IllegalArgumentException("null value"); }
+        if (in == null) {
+            throw new IllegalArgumentException("null value");
+        }
 
         StringBuffer stringBuffer = new StringBuffer(in.length * 5 / 4);
         byte[] chunk = new byte[4];
         int chunkIndex = 0;
 
-        for (int i=0; i < in.length; i++) {
+        for (int i = 0; i < in.length; i++) {
 
             byte currByte = in[i];
 
@@ -50,7 +51,7 @@ public class Base85Encoder {
             Arrays.fill(chunk, chunkIndex, chunk.length, (byte) 0);
             int value = byteToInt(chunk);
             char[] encodedChunk = encodeChunk(value);
-            for (int i=0; i < encodedChunk.length - numPadded; i++) {
+            for (int i = 0; i < encodedChunk.length - numPadded; i++) {
                 stringBuffer.append(encodedChunk[i]);
             }
         }
@@ -74,10 +75,10 @@ public class Base85Encoder {
     }
 
 
-
-
     private static int byteToInt(byte[] value) {
-        if (value == null || value.length != 4) { throw new IllegalArgumentException("value not 4 bytes long"); }
+        if (value == null || value.length != 4) {
+            throw new IllegalArgumentException("value not 4 bytes long");
+        }
 
         return ByteBuffer.wrap(value).getInt();
     }
@@ -85,7 +86,7 @@ public class Base85Encoder {
     private static char[] encodeChunk(int value) {
         long longVal = value & 0x00000000ffffffffL;
         char[] encodedChunk = new char[5];
-        for (int i=0; i < encodedChunk.length; i++) {
+        for (int i = 0; i < encodedChunk.length; i++) {
             encodedChunk[i] = (char) ((longVal / BASE85_PW[4 - i]) + ASCII_SHIFT);
             longVal = longVal % BASE85_PW[4 - i];
         }

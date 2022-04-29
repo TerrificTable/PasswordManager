@@ -28,7 +28,7 @@ public class Main {
     }
 
     public static boolean correct(JTextField username, JPasswordField password) {
-        if (username.getText().equals("admin") && password.getText().equals("test")){
+        if (username.getText().equals("admin") && password.getText().equals("test")) {
             Main.account = username.getText();
             return true;
         }

@@ -19,7 +19,7 @@ public class SaveData {
         File save_file = new File(_ConfigFile.getAbsolutePath(), Base64Encoder.Companion.Base64Encode("Logins") + ".txt");
         BufferedWriter save_out = new BufferedWriter(new FileWriter(save_file));
 
-        for (int i=0; i<Main.usernameList.size(); i++) {
+        for (int i = 0; i < Main.usernameList.size(); i++) {
             String platform = (String) Main.platformList.get(i);
             String username = (String) Main.usernameList.get(i);
             String password = (String) Main.clear_passwordList.get(i);

@@ -8,18 +8,20 @@ import java.util.regex.Pattern;
 
 public class Base85Decoder {
     private final static int ASCII_SHIFT = 33;
-    private static int[] BASE85_PW = {
+    private static final int[] BASE85_PW = {
             1,
             85,
             85 * 85,
             85 * 85 * 85,
             85 * 85 * 85 * 85
     };
-    private static Pattern REMOVE_WHITESPACE = Pattern.compile("\\s+");
+    private static final Pattern REMOVE_WHITESPACE = Pattern.compile("\\s+");
 
 
     public static String Base85Decode(String in) {
-        if (in == null) { throw new IllegalArgumentException("null value"); }
+        if (in == null) {
+            throw new IllegalArgumentException("null value");
+        }
 
         final int inputLength = in.length();
         long zCount = in.chars().filter(c -> c == 'z').count();
@@ -35,7 +37,7 @@ public class Base85Decoder {
         byte[] chunk = new byte[5];
 
         int chunkIndex = 0;
-        for (int i=0; i < payload.length; i++) {
+        for (int i = 0; i < payload.length; i++) {
             byte currByte = payload[i];
 
             if (currByte == 'z') {
@@ -59,7 +61,7 @@ public class Base85Decoder {
             int numPadded = chunk.length - chunkIndex;
             Arrays.fill(chunk, chunkIndex, chunk.length, (byte) 'u');
             byte[] paddedDecode = decodeChunk(chunk);
-            for (int i=0; i < paddedDecode.length - numPadded; i++) {
+            for (int i = 0; i < paddedDecode.length - numPadded; i++) {
                 byteBuff.put(paddedDecode[i]);
             }
         }
@@ -84,10 +86,8 @@ public class Base85Decoder {
     } */
 
 
-
-
     private static byte[] intToByte(int value) {
-        return new byte[] {
+        return new byte[]{
                 (byte) (value >>> 24),
                 (byte) (value >>> 16),
                 (byte) (value >>> 8),
@@ -96,7 +96,9 @@ public class Base85Decoder {
     }
 
     private static byte[] decodeChunk(byte[] chunk) {
-        if (chunk.length != 5) { throw new IllegalArgumentException("chunk size not 5"); }
+        if (chunk.length != 5) {
+            throw new IllegalArgumentException("chunk size not 5");
+        }
 
         int value = 0;
         value += (chunk[0] - ASCII_SHIFT) * BASE85_PW[4];

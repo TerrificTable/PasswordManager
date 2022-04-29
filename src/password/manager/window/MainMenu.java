@@ -4,20 +4,60 @@
 
 package password.manager.window;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.io.IOException;
-import java.util.*;
-import javax.swing.*;
-
 import password.Main;
 import password.generator.PasswordGen;
 import password.manager.SaveData;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
 /**
  * @author TerrificTable
  */
 public class MainMenu extends JFrame {
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    public JTabbedPane tabbedPane1;
+    public JPanel manager;
+    public JButton updateButton;
+    public JScrollPane scrollPane1;
+    public JList platformList;
+    public JScrollPane scrollPane2;
+    public JList usernameList;
+    public JScrollPane scrollPane3;
+    public JList passwordList;
+    public JLabel loggedIn_Label;
+    public JButton removeButton;
+    public JButton logoutButton;
+    public JLabel label1;
+    public JLabel label2;
+    public JLabel label3;
+    public JLabel PasswordManagerLabel;
+    public JPanel passwordGen;
+    public JLabel passwordGenLabel;
+    public JButton generateButton;
+    public JTextField passwordOut;
+    public JLabel passwordOutLabel;
+    public JLabel passwordLengthLabel;
+    public JTextField field_pwdgenPasswordLength;
+    public JSeparator seperator;
+    public JLabel errorLabel;
+    public JPanel addPassword;
+    public JLabel AddPasswordLabel;
+    public JLabel Platform_Label;
+    public JTextField field_addPlatform;
+    public JLabel Username_Label;
+    public JTextField field_addUsername;
+    public JLabel Password_Label;
+    public JPasswordField field_addPassword;
+    public JButton addButton;
+    public JLabel addErrorLabel;
     public MainMenu() {
         initComponents();
     }
@@ -50,7 +90,8 @@ public class MainMenu extends JFrame {
         }
     }
 
-    private void button1MouseClicked(MouseEvent e) {  }
+    private void button1MouseClicked(MouseEvent e) {
+    }
 
     private void addButtonMouseClicked(MouseEvent e) {
         if (this.field_addPlatform.getText().equals("") || this.field_addUsername.getText().equals("") || this.field_addPassword.getText().equals("")) {
@@ -269,7 +310,7 @@ public class MainMenu extends JFrame {
                 {
                     // compute preferred size
                     Dimension preferredSize = new Dimension();
-                    for(int i = 0; i < manager.getComponentCount(); i++) {
+                    for (int i = 0; i < manager.getComponentCount(); i++) {
                         Rectangle bounds = manager.getComponent(i).getBounds();
                         preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
                         preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
@@ -334,7 +375,7 @@ public class MainMenu extends JFrame {
                 {
                     // compute preferred size
                     Dimension preferredSize = new Dimension();
-                    for(int i = 0; i < passwordGen.getComponentCount(); i++) {
+                    for (int i = 0; i < passwordGen.getComponentCount(); i++) {
                         Rectangle bounds = passwordGen.getComponent(i).getBounds();
                         preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
                         preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
@@ -399,7 +440,7 @@ public class MainMenu extends JFrame {
                 {
                     // compute preferred size
                     Dimension preferredSize = new Dimension();
-                    for(int i = 0; i < addPassword.getComponentCount(); i++) {
+                    for (int i = 0; i < addPassword.getComponentCount(); i++) {
                         Rectangle bounds = addPassword.getComponent(i).getBounds();
                         preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
                         preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
@@ -419,7 +460,7 @@ public class MainMenu extends JFrame {
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
-            for(int i = 0; i < contentPane.getComponentCount(); i++) {
+            for (int i = 0; i < contentPane.getComponentCount(); i++) {
                 Rectangle bounds = contentPane.getComponent(i).getBounds();
                 preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
                 preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
@@ -434,42 +475,5 @@ public class MainMenu extends JFrame {
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    public JTabbedPane tabbedPane1;
-    public JPanel manager;
-    public JButton updateButton;
-    public JScrollPane scrollPane1;
-    public JList platformList;
-    public JScrollPane scrollPane2;
-    public JList usernameList;
-    public JScrollPane scrollPane3;
-    public JList passwordList;
-    public JLabel loggedIn_Label;
-    public JButton removeButton;
-    public JButton logoutButton;
-    public JLabel label1;
-    public JLabel label2;
-    public JLabel label3;
-    public JLabel PasswordManagerLabel;
-    public JPanel passwordGen;
-    public JLabel passwordGenLabel;
-    public JButton generateButton;
-    public JTextField passwordOut;
-    public JLabel passwordOutLabel;
-    public JLabel passwordLengthLabel;
-    public JTextField field_pwdgenPasswordLength;
-    public JSeparator seperator;
-    public JLabel errorLabel;
-    public JPanel addPassword;
-    public JLabel AddPasswordLabel;
-    public JLabel Platform_Label;
-    public JTextField field_addPlatform;
-    public JLabel Username_Label;
-    public JTextField field_addUsername;
-    public JLabel Password_Label;
-    public JPasswordField field_addPassword;
-    public JButton addButton;
-    public JLabel addErrorLabel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

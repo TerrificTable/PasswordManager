@@ -7,16 +7,26 @@ package password.manager.window;
 import password.Main;
 import password.manager.LoadData;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.io.IOException;
-import java.util.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.ResourceBundle;
 
 /**
  * @author TerrificTable
  */
 public class Login extends JFrame {
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    private JLabel headline;
+    private JButton loginButton;
+    private JButton exitButton;
+    private JTextField field_loginUsername;
+    private JPasswordField field_loginPassword;
+    private JLabel usernameLabel;
+    private JLabel passwordLabel;
+    private JLabel error;
     public Login() {
         initComponents();
     }
@@ -121,7 +131,7 @@ public class Login extends JFrame {
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
-            for(int i = 0; i < contentPane.getComponentCount(); i++) {
+            for (int i = 0; i < contentPane.getComponentCount(); i++) {
                 Rectangle bounds = contentPane.getComponent(i).getBounds();
                 preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
                 preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
@@ -136,15 +146,5 @@ public class Login extends JFrame {
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JLabel headline;
-    private JButton loginButton;
-    private JButton exitButton;
-    private JTextField field_loginUsername;
-    private JPasswordField field_loginPassword;
-    private JLabel usernameLabel;
-    private JLabel passwordLabel;
-    private JLabel error;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

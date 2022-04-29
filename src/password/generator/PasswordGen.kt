@@ -12,7 +12,7 @@ object PasswordGen {
         for (i in 0 until length) {
             var rand: Int = Math.floor(Math.random() * 2 * alphabet.length).toInt()
             while (rand > alphabet.length) rand -= alphabet.length
-            if (rand <= 0) rand = 1;
+            if (rand <= 0) rand = 1
 
             password += alphabet[rand - 1]
         }

@@ -1,4 +1,4 @@
-package encryption.decoder;
+package encryption.decoder
 
 
 class RotDecoder {
