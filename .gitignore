@@ -1,4 +1,7 @@
-# Project exclude paths
+# Files
+PasswordManager.iml
+
+# Folders
 /recources/
 /.idea/
 /out/
