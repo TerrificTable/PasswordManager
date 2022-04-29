@@ -1,0 +1,87 @@
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.14.1" encoding: "UTF-8"
+
+new FormModel {
+	"i18n.autoExternalize": true
+	"i18n.bundlePackage": "password.manager.window.resources"
+	"i18n.bundleName": "LoginFrame"
+	"i18n.keyPrefix": "Login"
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			"minimumSize": new java.awt.Dimension( 400, 260 )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "headline"
+				"text": new FormMessage( null, "Login.headline.text" )
+				"font": new java.awt.Font( "Grold Rounded Slim Medium", 0, 28 )
+				"horizontalAlignment": 0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 0
+				"y": 10
+				"width": 400
+				"height": 39
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "loginButton"
+				"text": new FormMessage( null, "Login.loginButton.text" )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "loginButtonMouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 200
+				"y": 170
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "exitButton"
+				"text": new FormMessage( null, "Login.exitButton.text" )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "exitButtonMouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 118
+				"y": 170
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "field_loginUsername"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 155
+				"y": 60
+				"width": 160
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "field_loginPassword"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 155
+				"y": 105
+				"width": 160
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "usernameLabel"
+				"text": new FormMessage( null, "Login.usernameLabel.text" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 75
+				"y": 60
+				"height": 30
+				"width": 80
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "passwordLabel"
+				"text": new FormMessage( null, "Login.passwordLabel.text" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 75
+				"y": 105
+				"width": 80
+				"height": 30
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "error"
+				"horizontalAlignment": 0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 0
+				"y": 140
+				"height": 25
+				"width": 400
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 260 )
+		} )
+	}
+}

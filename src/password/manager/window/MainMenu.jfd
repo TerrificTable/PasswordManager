@@ -7,18 +7,22 @@ new FormModel {
 	"i18n.keyPrefix": "MainMenu"
 	contentType: "form/swing"
 	root: new FormRoot {
+		auxiliary() {
+			"JavaCodeGenerator.defaultVariableModifiers": 1
+		}
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
 			"minimumSize": new java.awt.Dimension( 650, 350 )
 			"defaultCloseOperation": 3
 			"title": "PasswordManager"
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosed", "thisWindowClosed", true ) )
 			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
 				name: "tabbedPane1"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 					name: "manager"
 					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label1"
-						"text": new FormMessage( null, "MainMenu.label1.text" )
+						name: "PasswordManagerLabel"
+						"text": new FormMessage( null, "MainMenu.PasswordManagerLabel.text" )
 						"horizontalAlignment": 0
 						"font": new java.awt.Font( "Grold Rounded Slim Medium", 0, 24 )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
@@ -26,6 +30,73 @@ new FormModel {
 						"y": 0
 						"width": 650
 						"height": 40
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "updateButton"
+						"text": new FormMessage( null, "MainMenu.updateButton.text" )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button1MouseClicked", true ) )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "updateButtonMouseClicked", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 20
+						"y": 240
+					} )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						add( new FormComponent( "javax.swing.JList" ) {
+							name: "platformList"
+						} )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 115
+						"y": 55
+						"width": 130
+						"height": 170
+					} )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane2"
+						add( new FormComponent( "javax.swing.JList" ) {
+							name: "usernameList"
+						} )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 260
+						"y": 55
+						"height": 170
+						"width": 135
+					} )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane3"
+						add( new FormComponent( "javax.swing.JList" ) {
+							name: "passwordList"
+						} )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 410
+						"y": 55
+						"height": 170
+						"width": 135
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "loggedIn_Label"
+						"text": new FormMessage( null, "MainMenu.loggedIn_Label.text" )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 5
+						"y": 10
+						"width": 120
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "removeButton"
+						"text": new FormMessage( null, "MainMenu.removeButton.text" )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "removeButtonMouseClicked", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 506
+						"y": 245
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "logoutButton"
+						"text": new FormMessage( null, "MainMenu.logoutButton.text" )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "logoutButtonMouseClicked", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 560
+						"y": 5
+						"width": 78
 					} )
 				}, new FormLayoutConstraints( null ) {
 					"title": new FormMessage( null, "MainMenu.manager.tab.title" )
@@ -80,8 +151,8 @@ new FormModel {
 						"height": 30
 					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "passwordLength"
-						"text": new FormMessage( null, "MainMenu.passwordLength.text" )
+						name: "field_pwdgenPasswordLength"
+						"text": new FormMessage( null, "MainMenu.field_pwdgenPasswordLength.text" )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 						"x": 190
 						"y": 60
@@ -107,6 +178,89 @@ new FormModel {
 					} )
 				}, new FormLayoutConstraints( null ) {
 					"title": new FormMessage( null, "MainMenu.passwordGen.tab.title" )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+					name: "addPassword"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "AddPasswordLabel"
+						"text": new FormMessage( null, "MainMenu.AddPasswordLabel.text" )
+						"font": new java.awt.Font( "Grold Rounded Slim Medium", 0, 24 )
+						"horizontalAlignment": 0
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 0
+						"y": 0
+						"width": 650
+						"height": 40
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "Platform_Label"
+						"text": new FormMessage( null, "MainMenu.Platform_Label.text" )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 80
+						"y": 65
+						"width": 75
+						"height": 30
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "field_addPlatform"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 155
+						"y": 65
+						"width": 330
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "Username_Label"
+						"text": new FormMessage( null, "MainMenu.Username_Label.text" )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 80
+						"y": 105
+						"width": 75
+						"height": 30
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "field_addUsername"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 155
+						"y": 105
+						"width": 330
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "Password_Label"
+						"text": new FormMessage( null, "MainMenu.Password_Label.text" )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 80
+						"y": 145
+						"width": 75
+						"height": 30
+					} )
+					add( new FormComponent( "javax.swing.JPasswordField" ) {
+						name: "field_addPassword"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 155
+						"y": 145
+						"width": 330
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "addButton"
+						"text": new FormMessage( null, "MainMenu.addButton.text" )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "addButtonMouseClicked", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 215
+						"y": 215
+						"width": 210
+						"height": 30
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "addErrorLabel"
+						"horizontalAlignment": 0
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 0
+						"y": 180
+						"width": 650
+						"height": 30
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": new FormMessage( null, "MainMenu.addPassword.tab.title" )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 0
