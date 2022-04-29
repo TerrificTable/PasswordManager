@@ -171,7 +171,7 @@ public class MainMenu extends JFrame {
                 thisWindowClosed(e);
             }
         });
-        var contentPane = getContentPane();
+        Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //======== tabbedPane1 ========
