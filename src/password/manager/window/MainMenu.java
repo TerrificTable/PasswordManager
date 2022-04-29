@@ -23,7 +23,7 @@ public class MainMenu extends JFrame {
 
         String length = passwordLength.getText();
 
-        if (length.length() > 0 || length.equals("0")) {
+        if (Objects.equals(length, "0") || length.length() > 0) {
             errorLabel.setText(" ");
             passwordOut.setText(PasswordGen.Generate(Integer.parseInt(length)));
         } else {
