@@ -66,7 +66,8 @@ public class Login extends JFrame {
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(400, 260));
-        Container contentPane = getContentPane();
+        setTitle("Login");
+        var contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //---- headline ----

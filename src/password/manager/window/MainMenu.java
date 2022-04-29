@@ -130,7 +130,6 @@ public class MainMenu extends JFrame {
         ResourceBundle bundle = ResourceBundle.getBundle("password.manager.window.resources.MainFrame");
         tabbedPane1 = new JTabbedPane();
         manager = new JPanel();
-        PasswordManagerLabel = new JLabel();
         updateButton = new JButton();
         scrollPane1 = new JScrollPane();
         platformList = new JList();
@@ -141,6 +140,10 @@ public class MainMenu extends JFrame {
         loggedIn_Label = new JLabel();
         removeButton = new JButton();
         logoutButton = new JButton();
+        label1 = new JLabel();
+        label2 = new JLabel();
+        label3 = new JLabel();
+        PasswordManagerLabel = new JLabel();
         passwordGen = new JPanel();
         passwordGenLabel = new JLabel();
         generateButton = new JButton();
@@ -171,7 +174,7 @@ public class MainMenu extends JFrame {
                 thisWindowClosed(e);
             }
         });
-        Container contentPane = getContentPane();
+        var contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //======== tabbedPane1 ========
@@ -180,13 +183,6 @@ public class MainMenu extends JFrame {
             //======== manager ========
             {
                 manager.setLayout(null);
-
-                //---- PasswordManagerLabel ----
-                PasswordManagerLabel.setText(bundle.getString("MainMenu.PasswordManagerLabel.text"));
-                PasswordManagerLabel.setHorizontalAlignment(SwingConstants.CENTER);
-                PasswordManagerLabel.setFont(new Font("Grold Rounded Slim Medium", Font.PLAIN, 24));
-                manager.add(PasswordManagerLabel);
-                PasswordManagerLabel.setBounds(0, 0, 650, 40);
 
                 //---- updateButton ----
                 updateButton.setText(bundle.getString("MainMenu.updateButton.text"));
@@ -205,21 +201,21 @@ public class MainMenu extends JFrame {
                     scrollPane1.setViewportView(platformList);
                 }
                 manager.add(scrollPane1);
-                scrollPane1.setBounds(115, 55, 130, 170);
+                scrollPane1.setBounds(115, 56, 130, 170);
 
                 //======== scrollPane2 ========
                 {
                     scrollPane2.setViewportView(usernameList);
                 }
                 manager.add(scrollPane2);
-                scrollPane2.setBounds(260, 55, 135, 170);
+                scrollPane2.setBounds(260, 56, 135, 170);
 
                 //======== scrollPane3 ========
                 {
                     scrollPane3.setViewportView(passwordList);
                 }
                 manager.add(scrollPane3);
-                scrollPane3.setBounds(410, 55, 135, 170);
+                scrollPane3.setBounds(410, 56, 135, 170);
 
                 //---- loggedIn_Label ----
                 loggedIn_Label.setText(bundle.getString("MainMenu.loggedIn_Label.text"));
@@ -247,6 +243,28 @@ public class MainMenu extends JFrame {
                 });
                 manager.add(logoutButton);
                 logoutButton.setBounds(560, 5, 78, logoutButton.getPreferredSize().height);
+
+                //---- label1 ----
+                label1.setText(bundle.getString("MainMenu.label1.text"));
+                manager.add(label1);
+                label1.setBounds(new Rectangle(new Point(115, 36), label1.getPreferredSize()));
+
+                //---- label2 ----
+                label2.setText(bundle.getString("MainMenu.label2.text"));
+                manager.add(label2);
+                label2.setBounds(new Rectangle(new Point(260, 36), label2.getPreferredSize()));
+
+                //---- label3 ----
+                label3.setText(bundle.getString("MainMenu.label3.text"));
+                manager.add(label3);
+                label3.setBounds(new Rectangle(new Point(410, 36), label3.getPreferredSize()));
+
+                //---- PasswordManagerLabel ----
+                PasswordManagerLabel.setText(bundle.getString("MainMenu.PasswordManagerLabel.text"));
+                PasswordManagerLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                PasswordManagerLabel.setFont(new Font("Grold Rounded Slim Medium", Font.PLAIN, 24));
+                manager.add(PasswordManagerLabel);
+                PasswordManagerLabel.setBounds(0, 0, 650, 40);
 
                 {
                     // compute preferred size
@@ -298,14 +316,14 @@ public class MainMenu extends JFrame {
                 //---- passwordLengthLabel ----
                 passwordLengthLabel.setText(bundle.getString("MainMenu.passwordLengthLabel.text"));
                 passwordGen.add(passwordLengthLabel);
-                passwordLengthLabel.setBounds(135, 55, 55, 30);
+                passwordLengthLabel.setBounds(135, 60, 55, 30);
 
                 //---- field_pwdgenPasswordLength ----
                 field_pwdgenPasswordLength.setText(bundle.getString("MainMenu.field_pwdgenPasswordLength.text"));
                 passwordGen.add(field_pwdgenPasswordLength);
                 field_pwdgenPasswordLength.setBounds(190, 60, 290, field_pwdgenPasswordLength.getPreferredSize().height);
                 passwordGen.add(seperator);
-                seperator.setBounds(0, 200, 650, 5);
+                seperator.setBounds(0, 192, 650, 5);
 
                 //---- errorLabel ----
                 errorLabel.setText(" ");
@@ -420,7 +438,6 @@ public class MainMenu extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     public JTabbedPane tabbedPane1;
     public JPanel manager;
-    public JLabel PasswordManagerLabel;
     public JButton updateButton;
     public JScrollPane scrollPane1;
     public JList platformList;
@@ -431,6 +448,10 @@ public class MainMenu extends JFrame {
     public JLabel loggedIn_Label;
     public JButton removeButton;
     public JButton logoutButton;
+    public JLabel label1;
+    public JLabel label2;
+    public JLabel label3;
+    public JLabel PasswordManagerLabel;
     public JPanel passwordGen;
     public JLabel passwordGenLabel;
     public JButton generateButton;

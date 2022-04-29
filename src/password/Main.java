@@ -21,9 +21,7 @@ public class Main {
     public static String account;
 
     public static void init() throws IOException {
-
         window.loggedIn_Label.setText("Logged In: " + Main.account);
-
         LoadData.load();
 
         login.setVisible(true);

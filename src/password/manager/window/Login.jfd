@@ -11,6 +11,7 @@ new FormModel {
 			name: "this"
 			"defaultCloseOperation": 3
 			"minimumSize": new java.awt.Dimension( 400, 260 )
+			"title": "Login"
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "headline"
 				"text": new FormMessage( null, "Login.headline.text" )
